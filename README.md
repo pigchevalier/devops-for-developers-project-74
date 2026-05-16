@@ -3,7 +3,7 @@
 [![push](https://github.com/pigchevalier/devops-for-developers-project-74/actions/workflows/push.yml/badge.svg)](https://github.com/pigchevalier/devops-for-developers-project-74/actions/workflows/push.yml)
 
 
-Dockerhub образа - pigchevalier/devops-for-developers-project-74
+Dockerhub образ - pigchevalier/devops-for-developers-project-74
 
 test - make ci
 
