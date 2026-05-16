@@ -1,0 +1,17 @@
+name: push
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-compose-action@v2
+      - uses: docker/login-action@v4
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_KEY }}
+      - run: cp .env.example .env
+      - run: make ci
+      - run: docker compose -f docker-compose.yml build app
+      - run: docker compose -f docker-compose.yml push app
+
