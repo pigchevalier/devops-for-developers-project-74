@@ -6,12 +6,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-compose-action@v2
-      - run: make ci
-      - uses: docker/build-push-action@v7
+      - uses: docker/login-action@v4
         with:
-          context: .
-          push: true
-          tags: pigchevalier/devops-for-developers-project-74:latest
-          secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.DOCKER_KEY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_KEY }}
+      - run: make ci
+      - run: docker compose -f docker-compose.yml build app
+      - run: docker compose -f docker-compose.yml push app
 
