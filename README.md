@@ -7,4 +7,4 @@ Dockerhub образа - pigchevalier/devops-for-developers-project-74
 
 test - make ci
 
-start app local - start-app
+start app local - make start-app
