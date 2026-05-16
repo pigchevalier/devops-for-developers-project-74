@@ -9,6 +9,7 @@ jobs:
       - run: make ci
       - uses: docker/build-push-action@v7
         with:
+          context: .
           push: true
           tags: pigchevalier/devops-for-developers-project-74:latest
           secrets: |
