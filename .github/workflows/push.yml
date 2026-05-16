@@ -1,0 +1,11 @@
+name: push
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: make ci
+      - run: docker-compose -f docker-compose.yml build app
+      - run: docker-compose -f docker-compose.yml push app
+

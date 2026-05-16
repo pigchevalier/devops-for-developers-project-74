@@ -1,0 +1,7 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    command: make test
+    image: pigchevalier/devops-for-developers-project-74
