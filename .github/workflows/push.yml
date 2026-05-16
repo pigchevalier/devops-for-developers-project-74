@@ -10,6 +10,7 @@ jobs:
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_KEY }}
+      - run: cp .env.example .env
       - run: make ci
       - run: docker compose -f docker-compose.yml build app
       - run: docker compose -f docker-compose.yml push app

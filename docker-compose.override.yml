@@ -7,3 +7,15 @@ services:
     command: make dev
     volumes:
       - "./app:/app"
+  caddy:
+    depends_on:
+      - app
+    image: caddy:latest
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./services/caddy:/etc/caddy"
