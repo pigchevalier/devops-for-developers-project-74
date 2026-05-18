@@ -14,11 +14,12 @@ services:
       db:
         condition: service_healthy
   db:
-    image: postgres:latest
+    image: postgres:18.4
     restart: always
     environment:
       POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
       POSTGRES_USER: "${DATABASE_USERNAME}"
+      POSTGRES_DB: "${DATABASE_NAME}"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
